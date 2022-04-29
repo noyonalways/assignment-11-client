@@ -1,5 +1,29 @@
 # Warehouse Management 
 
+### Live Websit link
+https://arredo-warehouse.web.app/
+---
+
+### Live server link
+https://salty-refuge-04381.herokuapp.com
+---
+
+---
+
+## Website Features
+-
+-
+-
+
+---
+
+## Used Technologies
+-
+-
+-
+
+---
+
 <img src=""/>
 
 
