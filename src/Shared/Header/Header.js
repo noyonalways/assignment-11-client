@@ -15,17 +15,17 @@ const Header = () => {
                     
                     <ul className={`lg:flex h-screen lg:h-auto items-center lg:space-x-5 w-3/6 lg:w-auto top-0 bg-white lg:bg-transparent absolute lg:static duration-200 z-10 ${open ? 'left-0 shadow lg:shadow-none'  : "-left-[50%]" }`}>
                         <li className=''>
-                            <NavLink className={({isActive}) => (isActive ? "bg-black text-white lg:text-black  lg:bg-opacity-0 block px-3 py-2 lg:p-0 " : "block px-3 py-2 lg:p-0 lg:text-opacity-50 text-black" )} to='/'>Home</NavLink>
+                            <NavLink className={({isActive}) => (isActive ? "bg-black text-white lg:text-black  lg:bg-opacity-0 block px-3 py-2 lg:p-0 " : "block px-3 py-2 lg:p-0 lg:text-opacity-50 text-black hover:text-black" )} to='/'>Home</NavLink>
                         </li>
                         <li>
-                            <NavLink className={({isActive}) => (isActive ? "bg-black text-white lg:text-black lg:bg-opacity-0 block px-3 py-2 lg:p-0 " : "block px-3 py-2 lg:p-0 lg:text-opacity-50 text-black" )} to='/manage-inventory'>Manage Inventory</NavLink>
+                            <NavLink className={({isActive}) => (isActive ? "bg-black text-white lg:text-black lg:bg-opacity-0 block px-3 py-2 lg:p-0 " : "block px-3 py-2 lg:p-0 lg:text-opacity-50 text-black hover:text-black" )} to='/manage-inventory'>Manage Inventory</NavLink>
                         </li>
                         <li>
-                            <NavLink className={({isActive}) => (isActive ? "bg-black text-white lg:text-black lg:bg-opacity-0  block px-3 py-2 lg:p-0 " : "block px-3 py-2 lg:p-0 lg:text-opacity-50 text-black" )} to='/blogs'>Blogs</NavLink>
+                            <NavLink className={({isActive}) => (isActive ? "bg-black text-white lg:text-black lg:bg-opacity-0  block px-3 py-2 lg:p-0 " : "block px-3 py-2 lg:p-0 lg:text-opacity-50 text-black hover:text-black" )} to='/blogs'>Blogs</NavLink>
                         </li>
                         
                     </ul>
-                    <ul>
+                    <ul className='flex'>
                         <li>
                             <NavLink to='/login'><HiUserCircle className='text-3xl'/></NavLink>
                         </li>

@@ -5,7 +5,7 @@ import SocialLogin from '../../Components/SocialLogin/SocialLogin';
 const Register = () => {
     return (
         <div>
-            <div className="container mx-auto lg:px-16 flex items-center justify-center h-screen">
+            <div className="container px-5 md:px-0 mx-auto lg:px-16 flex items-center justify-center h-screen">
                 <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md border-t">
                     <div class="px-6 py-4">
                         <h2 class="text-3xl font-bold text-center text-gray-700 ">Register</h2>
@@ -29,7 +29,7 @@ const Register = () => {
 
                             <div class="flex items-center justify-between mt-4">
                                 <label className='text-sm' htmlFor="terms"><input className='mr-2' type="checkbox" name="" id="terms" />Terms and condition</label>
-                                <button class="px-4 py-2 leading-5 text-white transition-colors duration-200 transform bg-blue-400 rounded hover:bg-blue-500 focus:outline-none" type="button">Register</button>
+                                <button class="px-4 py-2 leading-5 text-white transition-colors duration-200 transform bg-blue-500 rounded hover:bg-blue-400 focus:outline-none" type="submit">Register</button>
                             </div>
                         </form>
                     </div>
