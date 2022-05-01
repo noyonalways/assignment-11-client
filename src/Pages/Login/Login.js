@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../Assets/images/arredo-logo-black.png';
 import logo2 from '../../Assets/images/arredo-logo.png';
 import PageTitle from '../../Components/PageTitle/PageTitle';
@@ -22,7 +22,10 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+
     const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
     const handleEmail = inputEmail => {
         if (/\S+@\S+\.\S+/.test(inputEmail)) {
@@ -55,7 +58,7 @@ const Login = () => {
     }
 
     if (user) {
-        navigate('/');
+        navigate(from, {replace: true});
         toast.success('Successfully Login', { id: 'login' });
     }
 

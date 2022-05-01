@@ -3,17 +3,24 @@ import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
 import { useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase/firebase.init';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import toast from 'react-hot-toast';
 
 const SocialLogin = () => {
     const [signInWithGoogle, userByGoogle, loadingByGoogle, errorByGoogle] = useSignInWithGoogle(auth);
     const [signInWithFacebook, userByFb, loadingByFb, errorByFb] = useSignInWithFacebook(auth);
+    
     const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+
+    if(userByFb){
+        console.log(userByFb)
+    }
 
     if (userByGoogle || userByFb) {
-        navigate('/');
+        navigate(from, {replace: true});
         toast.success('Successfully Login',{id: 'socialLogin'});
     }
 
@@ -24,6 +31,12 @@ const SocialLogin = () => {
     if(errorByGoogle || errorByFb){
         if(errorByFb?.message.includes('auth/popup-closed-by-user') || errorByGoogle?.message.includes('auth/popup-closed-by-user')){
             toast.error('You closed the Popup', {id: 'popup'});
+        }
+        else if(errorByFb?.message.includes('auth/account-exists-with-different-credential') || errorByGoogle?.message.includes('auth/account-exists-with-different-credential')){
+            toast.error('User exist with the same email', {id: 'popup2'});
+        }
+        else{
+            toast.error(errorByFb?.message || errorByGoogle?.message, {id: 'popup3'});
         }
     }
 

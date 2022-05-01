@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation} from 'react-router-dom';
 import PageTitle from '../../Components/PageTitle/PageTitle';
 import SocialLogin from '../../Components/SocialLogin/SocialLogin';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
@@ -24,7 +24,10 @@ const Register = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updating, ] = useUpdateProfile(auth);
+
     const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
 
     const handleName = inputName => {
@@ -62,7 +65,7 @@ const Register = () => {
     }
 
     if(user){
-        navigate('/');
+        navigate(from, {replace: true});
         toast.success('Successfully Register!',{id: 'register'});
     }
 

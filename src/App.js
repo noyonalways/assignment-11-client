@@ -2,6 +2,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { Toaster } from 'react-hot-toast';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import RequireAuth from './Components/RequireAuth/RequireAuth';
 import Blogs from './Pages/Blogs/Blogs';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
@@ -20,7 +21,9 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/manage-inventory' element={<ManageInventory />} />
-          <Route path='/my-items' element={<MyItems/>} />
+          <Route path='/my-items' element={
+            <RequireAuth><MyItems/></RequireAuth>
+          } />
           <Route path='/blogs' element={<Blogs />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
