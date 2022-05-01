@@ -6,16 +6,16 @@ import logo from '../../Assets/images/arredo-logo-black.png';
 
 const Footer = () => {
     return (
-        <footer class="bg-white pt-10 shadow">
-            <div class="container lg:px-16 px-4 mx-auto pb-6">
-                <div class="lg:flex">
-                    <div class="w-full -mx-6 lg:w-2/5">
-                        <div class="px-6">
+        <footer className="bg-white pt-10 shadow">
+            <div className="container lg:px-16 px-4 mx-auto pb-6">
+                <div className="lg:flex">
+                    <div className="w-full -mx-6 lg:w-2/5">
+                        <div className="px-6">
 
                             <Link className='inline-block w-20' to='/'><img className='w-full' src={logo} alt="" /></Link>
 
-                            <p class="max-w-md mt-2 text-gray-500 ">Join 31,000+ other and never miss out on new tips, tutorials, and more.</p>
-                            <div class="flex mt-4 space-x-3">
+                            <p className="max-w-md mt-2 text-gray-500 ">Join 31,000+ other and never miss out on new tips, tutorials, and more.</p>
+                            <div className="flex mt-4 space-x-3">
                                 <Link to='/'><FaLinkedin /></Link>
                                 <Link to='/'><FaFacebook /></Link>
                                 <Link to='/'><FaTwitter /></Link>
@@ -23,33 +23,33 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    <div class="mt-6 lg:mt-0 lg:flex-1">
-                        <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
+                    <div className="mt-6 lg:mt-0 lg:flex-1">
+                        <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
                             <div>
-                                <h3 class="text-gray-700 uppercase">About</h3>
-                                <a href="/" class="block mt-2 text-sm text-gray-600 hover:underline">Company</a>
-                                <a href="/" class="block mt-2 text-sm text-gray-600 hover:underline">community</a>
-                                <a href="/" class="block mt-2 text-sm text-gray-600 hover:underline">Careers</a>
+                                <h3 className="text-gray-700 uppercase">About</h3>
+                                <a href="/" className="block mt-2 text-sm text-gray-600 hover:underline">Company</a>
+                                <a href="/" className="block mt-2 text-sm text-gray-600 hover:underline">community</a>
+                                <a href="/" className="block mt-2 text-sm text-gray-600 hover:underline">Careers</a>
                             </div>
 
                             <div>
-                                <h3 class="text-gray-700 uppercase">Blog</h3>
-                                <a href="/" class="block mt-2 text-sm text-gray-600 hover:underline">Tec</a>
-                                <a href="/" class="block mt-2 text-sm text-gray-600 hover:underline">Music</a>
-                                <a href="/" class="block mt-2 text-sm text-gray-600 hover:underline">Videos</a>
+                                <h3 className="text-gray-700 uppercase">Blog</h3>
+                                <a href="/" className="block mt-2 text-sm text-gray-600 hover:underline">Tec</a>
+                                <a href="/" className="block mt-2 text-sm text-gray-600 hover:underline">Music</a>
+                                <a href="/" className="block mt-2 text-sm text-gray-600 hover:underline">Videos</a>
                             </div>
 
                             <div>
-                                <h3 class="text-gray-700 uppercase">Products</h3>
-                                <a href="/" class="block mt-2 text-sm text-gray-600 hover:underline">Mega cloud</a>
-                                <a href="/" class="block mt-2 text-sm text-gray-600 hover:underline">Aperion UI</a>
-                                <a href="/" class="block mt-2 text-sm text-gray-600 hover:underline">Meraki UI</a>
+                                <h3 className="text-gray-700 uppercase">Products</h3>
+                                <a href="/" className="block mt-2 text-sm text-gray-600 hover:underline">Mega cloud</a>
+                                <a href="/" className="block mt-2 text-sm text-gray-600 hover:underline">Aperion UI</a>
+                                <a href="/" className="block mt-2 text-sm text-gray-600 hover:underline">Meraki UI</a>
                             </div>
 
                             <div>
-                                <h3 class="text-gray-700 uppercase ">Contact</h3>
-                                <span class="block mt-2 text-sm text-gray-600 hover:underline">+1 526 654 8965</span>
-                                <span class="block mt-2 text-sm text-gray-600 hover:underline">example@email.com</span>
+                                <h3 className="text-gray-700 uppercase ">Contact</h3>
+                                <span className="block mt-2 text-sm text-gray-600 hover:underline">+1 526 654 8965</span>
+                                <span className="block mt-2 text-sm text-gray-600 hover:underline">example@email.com</span>
                             </div>
                         </div>
                     </div>
