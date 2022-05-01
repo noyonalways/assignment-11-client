@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PageTitle from '../../Components/PageTitle/PageTitle';
 import SocialLogin from '../../Components/SocialLogin/SocialLogin';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase/firebase.init';
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
+import Loading from '../../Components/Loading/Loading';
+import toast from 'react-hot-toast';
 
 const Register = () => {
 
@@ -22,6 +24,7 @@ const Register = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updating, ] = useUpdateProfile(auth);
+    const navigate = useNavigate();
 
 
     const handleName = inputName => {
@@ -58,6 +61,14 @@ const Register = () => {
         }
     }
 
+    if(user){
+        navigate('/');
+        toast.success('Successfully Register!',{id: 'register'});
+    }
+
+    if(loading || updating){
+        return <Loading/>
+    }
 
     const handleCreateUser = async (event) => {
         event.preventDefault();
@@ -83,10 +94,7 @@ const Register = () => {
 
     }
 
-    if(user){
-        console.log(user);
-    }
-
+    
 
 
     return (
