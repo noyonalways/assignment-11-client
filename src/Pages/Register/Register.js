@@ -81,8 +81,6 @@ const Register = () => {
             event.target.reset();
         }
 
-        
-
     }
 
     if(user){
