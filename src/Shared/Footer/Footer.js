@@ -25,26 +25,44 @@ const Footer = () => {
 
                     <div className="mt-6 lg:mt-0 lg:flex-1">
                         <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
-                            <div>
+                            <ul>
                                 <h3 className="text-gray-700 uppercase">About</h3>
-                                <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">Company</a>
-                                <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">community</a>
-                                <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">Careers</a>
-                            </div>
+                                <li>
+                                    <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">Company</a>
+                                </li>
+                                <li>
+                                    <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">community</a>
+                                </li>
+                                <li>
+                                    <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">Careers</a>
+                                </li>
+                            </ul>
 
-                            <div>
+                            <ul>
                                 <h3 className="text-gray-700 uppercase">Blog</h3>
-                                <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">Tec</a>
-                                <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">Music</a>
-                                <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">Videos</a>
-                            </div>
+                                <li>
+                                    <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">Tec</a>
+                                </li>
+                                <li>
+                                    <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">Music</a>
+                                </li>
+                                <li>
+                                    <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">Videos</a>
+                                </li>
+                            </ul>
 
-                            <div>
+                            <ul>
                                 <h3 className="text-gray-700 uppercase">Products</h3>
-                                <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">Mega cloud</a>
-                                <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">Aperion UI</a>
-                                <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">Meraki UI</a>
-                            </div>
+                                <li>
+                                    <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">Mega cloud</a>
+                                </li>
+                                <li>
+                                    <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">Aperion UI</a>
+                                </li>
+                                <li>
+                                    <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">Meraki UI</a>
+                                </li>
+                            </ul>
 
                             <div>
                                 <h3 className="text-gray-700 uppercase ">Contact</h3>
@@ -57,10 +75,10 @@ const Footer = () => {
             </div>
             <div className="bg-gray-100">
                 <div className="container lg:px-16 px-3 mx-auto py-4 flex flex-wrap flex-col sm:flex-row">
-                <p className="text-gray-500 text-sm text-center sm:text-left">&copy; {new Date().getFullYear()} Arredo —
-                    <a href="https://coder-noyon.blogspot.com" className="text-gray-600 ml-1" target="_blank" rel="noopener noreferrer">@codernoyon</a>
-                </p>
-                <span className="sm:ml-auto sm:mt-0 mt-2 sm:w-auto w-full sm:text-left text-center text-gray-500 text-sm">Programming Hero Learner</span>
+                    <p className="text-gray-500 text-sm text-center sm:text-left">&copy; {new Date().getFullYear()} Arredo —
+                        <a href="https://coder-noyon.blogspot.com" className="text-gray-600 ml-1" target="_blank" rel="noopener noreferrer">@codernoyon</a>
+                    </p>
+                    <span className="sm:ml-auto sm:mt-0 mt-2 sm:w-auto w-full sm:text-left text-center text-gray-500 text-sm">Programming Hero Learner</span>
                 </div>
             </div>
 
