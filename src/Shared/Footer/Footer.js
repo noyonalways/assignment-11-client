@@ -27,29 +27,29 @@ const Footer = () => {
                         <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
                             <div>
                                 <h3 className="text-gray-700 uppercase">About</h3>
-                                <a href="/" className="block mt-2 text-sm text-gray-600 hover:underline">Company</a>
-                                <a href="/" className="block mt-2 text-sm text-gray-600 hover:underline">community</a>
-                                <a href="/" className="block mt-2 text-sm text-gray-600 hover:underline">Careers</a>
+                                <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">Company</a>
+                                <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">community</a>
+                                <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">Careers</a>
                             </div>
 
                             <div>
                                 <h3 className="text-gray-700 uppercase">Blog</h3>
-                                <a href="/" className="block mt-2 text-sm text-gray-600 hover:underline">Tec</a>
-                                <a href="/" className="block mt-2 text-sm text-gray-600 hover:underline">Music</a>
-                                <a href="/" className="block mt-2 text-sm text-gray-600 hover:underline">Videos</a>
+                                <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">Tec</a>
+                                <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">Music</a>
+                                <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">Videos</a>
                             </div>
 
                             <div>
                                 <h3 className="text-gray-700 uppercase">Products</h3>
-                                <a href="/" className="block mt-2 text-sm text-gray-600 hover:underline">Mega cloud</a>
-                                <a href="/" className="block mt-2 text-sm text-gray-600 hover:underline">Aperion UI</a>
-                                <a href="/" className="block mt-2 text-sm text-gray-600 hover:underline">Meraki UI</a>
+                                <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">Mega cloud</a>
+                                <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">Aperion UI</a>
+                                <a href="/" className="inline-block mt-2 text-sm text-gray-600 hover:underline">Meraki UI</a>
                             </div>
 
                             <div>
                                 <h3 className="text-gray-700 uppercase ">Contact</h3>
-                                <span className="block mt-2 text-sm text-gray-600 hover:underline">+1 526 654 8965</span>
-                                <span className="block mt-2 text-sm text-gray-600 hover:underline">example@email.com</span>
+                                <span className="inline-block mt-2 text-sm text-gray-600 hover:underline">+1 526 654 8965</span>
+                                <span className="inline-block mt-2 text-sm text-gray-600 hover:underline">example@email.com</span>
                             </div>
                         </div>
                     </div>

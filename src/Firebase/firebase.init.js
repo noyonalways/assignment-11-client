@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCvZMFR4xTZcUxAbkbfJ6PbMF38UQbRPhg",
-  authDomain: "arredo-warehouse.firebaseapp.com",
-  projectId: "arredo-warehouse",
-  storageBucket: "arredo-warehouse.appspot.com",
-  messagingSenderId: "147991214071",
-  appId: "1:147991214071:web:f9e9bf673ee61322eee0f2"
+  apiKey:process.env.REACT_APP_apiKey,
+  authDomain:process.env.REACT_APP_authDomain,
+  projectId:process.env.REACT_APP_projectId,
+  storageBucket:process.env.REACT_APP_storageBucket,
+  messagingSenderId:process.env.REACT_APP_messagingSenderId,
+  appId:process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase
