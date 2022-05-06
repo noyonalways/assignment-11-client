@@ -5,13 +5,22 @@ import SingleProduct from '../../Components/SingleProduct/SingleProduct';
 import axios from 'axios';
 const ManageInventory = () => {
     const [products, setProducts] = useState([]);
+    const [limit, setLimit] = useState(5);
+    const [pageNumber, setPageNumber] = useState(0);
+    const [totalPage, setTotalPage] = useState(1)
     useEffect(() => {
         const fetchProducts = async () => {
-            const res = await axios.get('http://localhost:5000/product');
-            setProducts(res.data)
+            const { data } = await axios.get(`http://localhost:5000/product?limit=${limit}&pageNumber=${pageNumber}`);
+            if (!data?.success) {
+                setProducts([])
+            }
+            setProducts(data.data);
+            setTotalPage(Math.ceil(data.count / limit));
+            console.log(totalPage);
         };
         fetchProducts();
-    },[])
+
+    }, [limit, pageNumber, totalPage])
     return (
         <div className='py-6'>
             <PageTitle title={'Blogs'} />
@@ -22,8 +31,21 @@ const ManageInventory = () => {
                 </div>
                 <div className="space-y-3">
                     {
-                        products.map(product => <SingleProduct product={product} key={product._id} />)
+                        products?.length ?
+                            products?.map(product => <SingleProduct product={product} key={product._id} />)
+                            : <div><h2 className="text-3xl text-center">No Product found</h2></div>
                     }
+                </div>
+                <div className='space-x-2 flex justify-end mt-5'>
+                    {
+                        [...Array(totalPage).keys()]?.map((number) => <button key={number}  onClick={() => setPageNumber(number)} className={` w-10 h-10 bg-gray-100 rounded-sm ${pageNumber === number ? 'bg-black text-white' : ''}`}>{number + 1}</button>)
+                    }
+                    <select defaultValue={limit} className='w-20 bg-gray-100' onChange={(e) => setLimit(e.target.value)}>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
                 </div>
             </div>
         </div>

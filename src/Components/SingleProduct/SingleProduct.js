@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SingleProduct = ({product}) => {
-    const {name, img, price, quantity, supplier } = product;
+    const {_id, name, img, price, quantity, supplier } = product;
     return (
         <div className="flex bg-gray-50 items-center rounded py-3 md:py-0">
             <div className='w-20 md:w-32'>
@@ -15,9 +16,9 @@ const SingleProduct = ({product}) => {
                 <p className='text-left'>Price: ${price}</p>
                 <p>Quantity: {quantity}</p>
                 <div className=' flex flex-col md:flex-row'>
-                    <button className="hover:bg-transparent duration-200 hover:text-blue-400 bg-blue-400 px-2 md:px-4 py-1 ring-2 ring-blue-400 rounded text-white mb-2 md:mb-0 md:mr-2">
+                    <Link to={`/product/${_id}`} className="hover:bg-transparent duration-200 hover:text-blue-400 bg-blue-400 px-2 md:px-4 py-1 ring-2 ring-blue-400 rounded text-white mb-2 md:mb-0 md:mr-2">
                         Edit
-                    </button>
+                    </Link>
                     <button className="hover:bg-transparent duration-200 hover:text-red-400 bg-red-400 px-2 md:px-4 py-1 ring-2 ring-red-400 rounded text-white">
                         Delete
                     </button>

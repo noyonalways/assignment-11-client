@@ -6,8 +6,8 @@ const BestProducts = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
         const fetchProducts = async () => {
-            const res = await axios.get('http://localhost:5000/product?size=6');
-            setProducts(res.data);
+            const {data} = await axios.get('http://localhost:5000/product?limit=6&pageNumber=0');
+            setProducts(data.data);
         }
         fetchProducts();
     },[])
