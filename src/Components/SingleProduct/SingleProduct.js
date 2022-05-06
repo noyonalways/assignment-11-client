@@ -14,7 +14,7 @@ const SingleProduct = ({product}) => {
                 </div>
                 <p className='text-left'>Price: ${price}</p>
                 <p>Quantity: {quantity}</p>
-                <div className=' flex flex-col lg:flex-row'>
+                <div className=' flex flex-col md:flex-row'>
                     <button className="hover:bg-transparent duration-200 hover:text-blue-400 bg-blue-400 px-2 md:px-4 py-1 ring-2 ring-blue-400 rounded text-white mb-2 md:mb-0 md:mr-2">
                         Edit
                     </button>
