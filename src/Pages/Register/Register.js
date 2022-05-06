@@ -22,7 +22,7 @@ const Register = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
     const [updateProfile, updating, ] = useUpdateProfile(auth);
 
     const navigate = useNavigate();
@@ -66,7 +66,7 @@ const Register = () => {
 
     if(user){
         navigate(from, {replace: true});
-        toast.success('Successfully Register!',{id: 'register'});
+        toast.success('Varification email sent!',{id: 'register'});
     }
 
     if(loading || updating){

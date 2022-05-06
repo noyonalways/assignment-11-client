@@ -8,7 +8,7 @@ import './Login.css';
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import toast from 'react-hot-toast';
 import auth from '../../Firebase/firebase.init';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSendPasswordResetEmail  } from 'react-firebase-hooks/auth';
 import { AiOutlineExclamationCircle } from "react-icons/ai";
 import Loading from '../../Components/Loading/Loading';
 
@@ -22,6 +22,7 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(auth);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -57,12 +58,16 @@ const Login = () => {
         }
     }
 
+    if(resetError){
+        toast.error(resetError.message, { id: 'resetPassword' });
+    }
+
     if (user) {
-        navigate(from, {replace: true});
+        navigate(from, { replace: true });
         toast.success('Successfully Login', { id: 'login' });
     }
 
-    if (loading) {
+    if (loading || sending) {
         return <Loading />
     }
 
@@ -80,6 +85,16 @@ const Login = () => {
         if (email.value && password.value) {
             await signInWithEmailAndPassword(email.value, password.value);
             event.target.reset();
+        }
+    }
+
+    const resetPassword = async () => {
+        if (email.value === '') {
+            setEmail({ value: '', error: 'Email is required' })
+        }
+        else if (email.value) {
+            await sendPasswordResetEmail(email.value);
+            toast.success('Reset password email Sent', { id: 'restEmail' });
         }
     }
 
@@ -121,7 +136,7 @@ const Login = () => {
                                 <div className="mt-6 relative">
                                     <div className="flex justify-between mb-2">
                                         <label htmlFor="password" className="text-sm text-gray-600">Password</label>
-                                        <a href="!#" className="text-sm text-gray-400 focus:text-blue-500 hover:text-blue-500 hover:underline">Forgot password?</a>
+                                        <button onClick={resetPassword} type='button' className="text-sm text-gray-400 hover:text-blue-500  hover:underline">Forgot password?</button>
                                     </div>
 
                                     <input onBlur={(e) => handlePassword(e.target.value)} type={showPasseword ? 'text' : 'password'} name="password" id="password" placeholder="Your Password" className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md  focus:border-blue-400  focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
