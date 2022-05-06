@@ -9,6 +9,7 @@ import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import ManageInventory from './Pages/ManageInventory/ManageInventory';
 import MyItems from './Pages/MyItems/MyItems';
+import NotFound from './Pages/NotFound/NotFound';
 import Register from './Pages/Register/Register';
 import UpdateProduct from './Pages/UpdateProduct/UpdateProduct';
 import Footer from './Shared/Footer/Footer';
@@ -26,7 +27,7 @@ function App() {
           <Route path='/my-items' element={
             <RequireAuth><MyItems/></RequireAuth>
           } />
-          <Route path='/:productId' element={
+          <Route path='/product/:productId' element={
             <RequireAuth><UpdateProduct/></RequireAuth>
           } />
           <Route path='/add-product' element={
@@ -35,7 +36,7 @@ function App() {
           <Route path='/blogs' element={<Blogs />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
-          <Route path='*' element={<Home />} />
+          <Route path='*' element={<NotFound/>} />
         </Routes>
         <Footer />
       </HelmetProvider>

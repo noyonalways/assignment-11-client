@@ -1,7 +1,16 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import Product from '../Product/Product';
 
 const BestProducts = () => {
+    const [products, setProducts] = useState([]);
+    useEffect(() => {
+        const fetchProducts = async () => {
+            const res = await axios.get('http://localhost:5000/product?size=6');
+            setProducts(res.data);
+        }
+        fetchProducts();
+    },[])
     return (
         <div className='py-24'>
             <div className="container mx-auto px-5 lg:px-16">
@@ -10,12 +19,9 @@ const BestProducts = () => {
                     <p>From the world's best brands and boutiques.</p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-                    <Product/>
-                    <Product/>
-                    <Product/>
-                    <Product/>
-                    <Product/>
-                    <Product/>
+                    {
+                        products.map(product => <Product product={product} key={product._id}/>)
+                    }
                 </div>
             </div>
         </div>

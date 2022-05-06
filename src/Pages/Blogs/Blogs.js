@@ -23,8 +23,6 @@ const Blogs = () => {
         return <Loading/>
     }
 
-    
-
     return (
         <section className="py-16 ">
             <PageTitle title={'Blogs'}/>
