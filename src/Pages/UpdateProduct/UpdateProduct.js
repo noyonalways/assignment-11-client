@@ -13,19 +13,20 @@ const UpdateProduct = () => {
             setProdouct(res.data)
         }
         fetchProduct();
-    },[productId]);
+    }, [productId]);
 
-    const {name, img, price, description, quantity, supplier } = product;
+    const { name, img, price, description, quantity, supplier } = product;
 
     return (
         <div className='pt-5 pb-16'>
             <PageTitle title={'Update Product'} />
             <div className="container mx-auto lg:px-16 px-4">
                 <h2 className="text-3xl text-center mb-10">Products Info</h2>
-                <div className='grid lg:grid-cols-2 gap-5 overflow-hidden bg-white rounded-lg shadow-lg w-full py-5 px-3'>
-                    <div className="max-w-sm mx-auto">
-                        <img className="object-cover object-center w-full h-56 rounded-md" src={img} alt="avatar" />
-
+                <div className='grid lg:grid-cols-2 gap-5 overflow-hidden bg-white rounded-lg shadow-lg w-full py-5 px-5'>
+                    <div className=" w-full md:w-[20rem] mx-auto md:mx-0">
+                        <div className='w-[16rem] md:w-[20rem]'>
+                            <img className=" w-full " src={img} alt="avatar" />
+                        </div>
                         <div className=" py-4">
                             <h1 className="text-2xl font-semibold text-gray-800">{name}</h1>
                             <p className="py-2 text-gray-700 ">{description}</p>

@@ -5,6 +5,7 @@ const Accordion = ({singleQuestion}) => {
 
     const {_id, question, answer} = singleQuestion;
 
+
     return (
         <div className="group outline-none accordion-section border" tabIndex={_id}>
 			<div className="group bg-white flex justify-between px-4 py-3 items-center text-black transition ease duration-500 cursor-pointer pr-10 relative  group-focus:bg-gray-100">

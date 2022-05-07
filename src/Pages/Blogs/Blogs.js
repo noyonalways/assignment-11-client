@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import Accordion from "../../Components/Accordion/Accordion";
-import Loading from '../../Components/Loading/Loading';
 import PageTitle from '../../Components/PageTitle/PageTitle';
+import Spinner from '../../Components/Spinner/Spinner';
 
 
 const Blogs = () => {
@@ -20,7 +20,7 @@ const Blogs = () => {
     }, []);
 
     if(loading){
-        return <Loading/>
+        return <Spinner/>
     }
 
     return (
@@ -35,7 +35,7 @@ const Blogs = () => {
                     <div className="md:basis-[60%] basis-[100%]" data-aos="fade-left" data-aos-duration="1000">
                         <div className="rounded overflow-hidden border">
                             {
-                                questions?.map(question => <Accordion key={question._id} singleQuestion={question} />)
+                                questions?.map(question => <Accordion loading={loading} key={question._id} singleQuestion={question} />)
                             }
                         </div>
                     </div>

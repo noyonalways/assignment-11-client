@@ -36,6 +36,11 @@ const Header = () => {
                             <NavLink className={({isActive}) => (isActive ? "bg-black text-white lg:text-black lg:bg-opacity-0 block px-3 py-2 lg:p-0 " : "block px-3 py-2 lg:p-0 lg:text-opacity-50 text-black hover:text-black" )} to='/my-items'>My items</NavLink>
                         </li>
                         }
+                        {
+                            user && <li>
+                            <NavLink className={({isActive}) => (isActive ? "bg-black text-white lg:text-black lg:bg-opacity-0 block px-3 py-2 lg:p-0 " : "block px-3 py-2 lg:p-0 lg:text-opacity-50 text-black hover:text-black" )} to='/add-product'>Add Product</NavLink>
+                        </li>
+                        }
                         <li>
                             <NavLink className={({isActive}) => (isActive ? "bg-black text-white lg:text-black lg:bg-opacity-0  block px-3 py-2 lg:p-0 " : "block px-3 py-2 lg:p-0 lg:text-opacity-50 text-black hover:text-black" )} to='/blogs'>Blogs</NavLink>
                         </li>

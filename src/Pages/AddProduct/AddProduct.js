@@ -1,6 +1,9 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../Firebase/firebase.init';
+
 
 const AddProduct = () => {
     const [name, setName] = useState({ value: '', error: '' });
@@ -9,6 +12,7 @@ const AddProduct = () => {
     const [description, setDescription] = useState({ value: '', error: '' });
     const [quantity, setQuantity] = useState({ value: '', error: '' });
     const [supplier, setSupplier] = useState({ value: '', error: '' });
+    const [user] = useAuthState(auth);
 
 
     const handleName = inputValue => {
@@ -96,7 +100,9 @@ const AddProduct = () => {
 
         if (name.value && price.value && quantity.value && supplier.value && description.value && img.value) {
 
-            const product = { name: name.value, price: price.value, img: img.value, description: description.value, quantity: quantity.value, supplier: supplier.value };
+            const product = { name: name.value, price: price.value, img: img.value, description: description.value, quantity: quantity.value, supplier: supplier.value, userName: user.displayName, userEmail: user.email, };
+
+
 
             const { data } = await axios.post('http://localhost:5000/product', product);
 
