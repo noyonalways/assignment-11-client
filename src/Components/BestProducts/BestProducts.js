@@ -20,7 +20,7 @@ const BestProducts = () => {
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
                     {
-                        products.map(product => <Product product={product} key={product._id}/>)
+                        products?.map(product => <Product product={product} key={product._id}/>)
                     }
                 </div>
             </div>

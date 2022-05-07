@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
+import NoDataFound from '../../Components/NoDataFound/NoDataFound';
 import PageTitle from '../../Components/PageTitle/PageTitle';
 import SingleProduct from '../../Components/SingleProduct/SingleProduct';
 import Spinner from '../../Components/Spinner/Spinner';
@@ -45,15 +46,15 @@ const MyItems = () => {
     return (
         <div className='py-10'>
             <PageTitle title={'My items'} />
-            <div className="container mx-auto lg:px-16">
+            <div className="container mx-auto lg:px-16 px-3">
                 <h2 className="text-2xl text-center mb-5">My Added Products</h2>
-                <div className="flex flex-col lg:flex-row lg:justify-between min-h-screen">
-                    <div className="space-y-3 baiss-full lg:basis-[70%] order-1 lg:order-[0] ">
+                <div className="flex flex-col lg:flex-row lg:justify-between min-h-[80vh]">
+                    <div className="space-y-3  baiss-full lg:basis-[70%] order-1 lg:order-[0] ">
                         {
-                            myAddedProducts.length ? myAddedProducts.map(product => <SingleProduct handleDeleteProduct={handleDeleteProduct} product={product} key={product._id} />)  : <div><h3 className="text-2xl">No data found</h3></div>
+                            myAddedProducts.length ? myAddedProducts.map(product => <SingleProduct handleDeleteProduct={handleDeleteProduct} product={product} key={product._id} />)  : <NoDataFound/>
                         }
                     </div>
-                    <div className="basis-full lg:basis-[28%] ">
+                    <div className="basis-full lg:basis-[28%] mb-10 md:mb-0">
                         <div className='p-4 rounded w-full bg-gray-50'>
                             <h3 className="text-xl">Name: {user?.displayName}</h3>
                             <p className="text-lg">Email address: {user?.email}</p>
