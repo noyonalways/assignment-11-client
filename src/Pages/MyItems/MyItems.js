@@ -13,16 +13,28 @@ const MyItems = () => {
     const [user] = useAuthState(auth);
     const [myAddedProducts, setMyAddedProducts] = useState([]);
     const email = user?.email;
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
+    const [limit, setLimit] = useState(5);
+    const [pageNumber, setPageNumber] = useState(0);
+    const [totalPage, setTotalPage] = useState(1);
+
     useEffect(() => {
         (async () => {
             setLoading(true)
-            const { data } = await axios.get(`http://localhost:5000/myItem?email=${email}`);
-            setMyAddedProducts(data);
-            setLoading(false)
+            const { data } = await axios.get(`http://localhost:5000/myItem?email=${email}&limit=${limit}&pageNumber=${pageNumber}`);
+
+            if (!data?.success) {
+                setMyAddedProducts([]);
+            }
+            else {
+                setMyAddedProducts(data?.data);
+                setTotalPage(Math.ceil(data?.count / limit));
+            }
+            setLoading(false);
+
         })();
 
-    }, [email]);
+    }, [email, limit, pageNumber, totalPage]);
 
     if (loading) {
         return <Spinner />
@@ -40,7 +52,7 @@ const MyItems = () => {
                 }
             })();
         }
-    }
+    };
 
 
     return (
@@ -51,10 +63,21 @@ const MyItems = () => {
                 <div className="flex flex-col lg:flex-row lg:justify-between min-h-[80vh]">
                     <div className="space-y-3  baiss-full lg:basis-[70%] order-1 lg:order-[0] ">
                         {
-                            myAddedProducts.length ? myAddedProducts.map(product => <SingleProduct handleDeleteProduct={handleDeleteProduct} product={product} key={product._id} />)  : <NoDataFound/>
+                            myAddedProducts.length ? myAddedProducts.map(product => <SingleProduct handleDeleteProduct={handleDeleteProduct} product={product} key={product._id} />) : <NoDataFound />
                         }
+                        <div className='space-x-2 flex justify-end mt-5'>
+                            {
+                                [...Array(totalPage).keys()]?.map((number) => <button key={number} onClick={() => setPageNumber(number)} className={` w-10 h-10 bg-gray-100 rounded-sm ${pageNumber === number ? 'bg-black text-white' : ''}`}>{number + 1}</button>)
+                            }
+                            <select defaultValue={limit} className='w-20 bg-gray-100' onChange={(e) => setLimit(e.target.value)}>
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
+                            </select>
+                        </div>
                     </div>
-                    <div className="basis-full lg:basis-[28%] mb-10 md:mb-0">
+                    <div className="basis-full lg:basis-[28%] mb-10 lg:mb-0">
                         <div className='p-4 rounded w-full bg-gray-50'>
                             <h3 className="text-xl">Name: {user?.displayName}</h3>
                             <p className="text-lg">Email address: {user?.email}</p>

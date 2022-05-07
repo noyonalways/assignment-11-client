@@ -24,6 +24,7 @@ const ManageInventory = () => {
         const fetchProducts = async () => {
             setLoading(true);
             const { data } = await axios.get(`http://localhost:5000/product?limit=${limit}&pageNumber=${pageNumber}`);
+            
             if (!data?.success) {
                 setProducts([])
             }
