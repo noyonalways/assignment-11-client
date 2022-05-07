@@ -20,7 +20,7 @@ const SingleProduct = ({product, handleDeleteProduct}) => {
                 <p className='text-sm md:text-base'>Quantity: {quantity}</p>
                 <div className=' flex flex-col md:flex-row'>
                     <Link to={`/product/${_id}`} className="text-sm md:text-base hover:bg-transparent text-center duration-200 hover:text-blue-400 bg-blue-400 px-2 md:px-4 py-1 ring-2 ring-blue-400 rounded text-white mb-2 md:mb-0 md:mr-2">
-                        Edit
+                        Update
                     </Link>
                     <button onClick={() => handleDeleteProduct(_id)} className="text-sm md:text-base hover:bg-transparent duration-200 hover:text-red-400 bg-red-400 px-2 md:px-4 py-1 ring-2 ring-red-400 rounded text-white">
                         Delete

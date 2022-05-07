@@ -100,7 +100,7 @@ const AddProduct = () => {
 
         if (name.value && price.value && quantity.value && supplier.value && description.value && img.value) {
 
-            const product = { name: name.value, price: price.value, img: img.value, description: description.value, quantity: quantity.value, supplier: supplier.value, userName: user.displayName, userEmail: user.email, };
+            const product = { name: name.value, price: parseInt(price.value), img: img.value, description: description.value, quantity: parseInt(quantity.value), supplier: supplier.value, userName: user.displayName, userEmail: user.email, };
 
 
 
