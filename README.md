@@ -2,29 +2,43 @@
 
 ### Live Websit link
 https://arredo-warehouse.web.app/
----
+
 
 ### Live server link
 https://salty-refuge-04381.herokuapp.com
----
 
 ---
 
 ## Website Features
--
--
--
+
+- Dynamic Website
+- Single page Application (Using REACT)
+- Responsive for All devices
+- User Authentication
+- User login by social accounts
+- User Can resigter an account by using valid email
+- User can update products 
+- User can add products
 
 ---
 
 ## Used Technologies
--
--
--
+
+- React JS
+- React Router (For routing)
+- Firebase (For Authentication)
+- Firebase Hook for more benefits
+- Most Popular CSS Utility Framwork Tailwindcss (For responsiveness)
+- Little bit Daisyui (Tailwindcss component library)
+- Axios (For api call)
+- Aos (For scrolling animation)
+- React_Iocns
+- React Helmet async (For dynamic title)
+- React hot Toast (For toast message)
 
 ---
 
-<img src=""/>
+<img src="" alt='Web layout' />
 
 
 ## ☕ Connect with me!
