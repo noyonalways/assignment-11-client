@@ -1,7 +1,9 @@
 import axios from 'axios';
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import NoDataFound from '../../Components/NoDataFound/NoDataFound';
 import PageTitle from '../../Components/PageTitle/PageTitle';
 import SingleProduct from '../../Components/SingleProduct/SingleProduct';
@@ -17,6 +19,7 @@ const MyItems = () => {
     const [limit, setLimit] = useState(5);
     const [pageNumber, setPageNumber] = useState(0);
     const [totalPage, setTotalPage] = useState(1);
+    const navigate = useNavigate();
 
     useEffect(() => {
         (async () => {
@@ -38,12 +41,18 @@ const MyItems = () => {
                 }
                 setLoading(false);
             } catch (error) {
-                console.log(error);
+                const data = error.response;
+                const status = data.status;
+                if(status === 401 || status === 403){
+                    signOut(auth);
+                    navigate('/login')
+                }
+                setLoading(false)
             }
 
         })();
 
-    }, [email, limit, pageNumber, totalPage]);
+    }, [email, limit, pageNumber, totalPage, navigate]);
 
     if (loading) {
         return <Spinner />
