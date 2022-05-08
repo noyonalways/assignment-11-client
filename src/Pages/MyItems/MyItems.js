@@ -21,16 +21,25 @@ const MyItems = () => {
     useEffect(() => {
         (async () => {
             setLoading(true)
-            const { data } = await axios.get(`http://localhost:5000/myItem?email=${email}&limit=${limit}&pageNumber=${pageNumber}`);
+            try {
+                const { data } = await axios.get(`http://localhost:5000/myItem?email=${email}&limit=${limit}&pageNumber=${pageNumber}`, {
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                    }
+                });
 
-            if (!data?.success) {
-                setMyAddedProducts([]);
+                if (!data?.success) {
+                    setMyAddedProducts([]);
+                }
+                else {
+
+                    setMyAddedProducts(data?.data);
+                    setTotalPage(Math.ceil(data?.count / limit));
+                }
+                setLoading(false);
+            } catch (error) {
+                console.log(error);
             }
-            else {
-                setMyAddedProducts(data?.data);
-                setTotalPage(Math.ceil(data?.count / limit));
-            }
-            setLoading(false);
 
         })();
 
