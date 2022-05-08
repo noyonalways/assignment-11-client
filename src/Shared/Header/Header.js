@@ -51,7 +51,7 @@ const Header = () => {
                             user ? <li>
                                 <button onClick={() => signOut(auth)} className='bg-gray-200 py-2 px-3 rounded hover:bg-gray-300 flex items-center space-x-2'><HiOutlineLogout/><span>Logout</span></button>
                             </li> : <li>
-                            <NavLink to='/login'><HiUserCircle className='text-3xl'/></NavLink>
+                            <NavLink title='Login' to='/login'><HiUserCircle className='text-3xl'/></NavLink>
                         </li>
                         }
                     </ul>

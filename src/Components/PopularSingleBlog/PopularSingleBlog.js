@@ -4,7 +4,7 @@ const PopularSingleBlog = ({blog}) => {
     const {img, description, name} = blog;
     
     return (
-        <div className="p-6">
+        <div data-aos="zoom-in-up" data-aos-duration="1500" className="p-6 hover:shadow-md duration-300">
             <img className="object-cover object-center w-full mb-8 lg:h-48 md:h-36 rounded-xl" src={img} alt="blog" />
 
             <h1 className="mx-auto mb-8 text-2xl font-semibold leading-none tracking-tighter text-neutral-600 lg:text-3xl" title={name}>{name.length > 18 ? name.slice(0, 18) + ".." : name}</h1>

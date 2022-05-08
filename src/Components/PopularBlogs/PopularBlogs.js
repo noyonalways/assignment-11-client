@@ -24,7 +24,7 @@ const PopularBlogs = () => {
     return (
         <section>
             <div className="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl">
-                <div className='space-y-2 text-center mb-10'>
+                <div data-aos="zoom-in" data-aos-duration="1000" className='space-y-2 text-center mb-10'>
                     <h2 className="text-2xl">Popular Blogs</h2>
                     <p>See all the pupular blogs</p>
                 </div>

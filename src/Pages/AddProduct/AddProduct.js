@@ -119,7 +119,7 @@ const AddProduct = () => {
     return (
         <div className="container mx-auto px-4 sm:px-6 md:px-0">
             <div className="flex items-center justify-center h-screen">
-                <div className=' md:w-[48%] lg:w-2/6 px-4 py-5 rounded shadow hover:shadow-md'>
+                <div data-aos="fade-up" data-aos-duration="1000" className=' md:w-[48%] lg:w-2/6 px-4 py-5 rounded shadow hover:shadow-md'>
                     <h3 className="text-xl text-center mb-3">Add Product</h3>
                     <form onSubmit={handleAddProduct} action="">
                         <div className="mb-2">

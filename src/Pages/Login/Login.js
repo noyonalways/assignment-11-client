@@ -112,7 +112,7 @@ const Login = () => {
         <div className="bg-white">
             <PageTitle title={'Login'} />
             <div className="flex justify-center h-screen">
-                <div className="hidden bg-cover lg:block lg:w-2/3">
+                <div data-aos="fade-up" data-aos-duration="1000" className="hidden bg-cover lg:block lg:w-2/3">
                     <div className="flex items-center h-full px-24 login-form">
                         <div>
                             <div className="w-28 ">
@@ -123,7 +123,7 @@ const Login = () => {
                     </div>
                 </div>
 
-                <div className="flex mt-8 w-full max-w-md px-6 mx-auto lg:w-2/6">
+                <div data-aos="fade-up" data-aos-duration="1500" className="flex mt-8 w-full max-w-md px-6 mx-auto lg:w-2/6">
                     <div className="flex-1">
                         <div className="text-center">
                             <div className="w-28 mx-auto">

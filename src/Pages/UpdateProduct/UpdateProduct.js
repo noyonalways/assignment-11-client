@@ -95,7 +95,7 @@ const UpdateProduct = () => {
             <PageTitle title={'Update product'} />
             <div className="container mx-auto lg:px-16 px-6">
                 <div className="flex flex-col lg:flex-row lg:justify-between">
-                    <div className='basis-full lg:basis-[70%] mb-5 lg:mb-0'>
+                    <div data-aos="fade-up" data-aos-duration="1000" className='basis-full lg:basis-[70%] mb-5 lg:mb-0'>
                         <div className=' flex flex-col bg-white rounded-lg shadow-sm md:flex-row '>
                             <img className="object-cover w-full h-auto rounded-t-lg md:h-auto md:w-[18rem] md:rounded-none md:rounded-l-lg" src={img} alt="" />
                             <div className="p-4">
@@ -113,7 +113,7 @@ const UpdateProduct = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="basis-full lg:basis-[28%]">
+                    <div data-aos="fade-up" data-aos-duration="1500" className="basis-full lg:basis-[28%]">
                         <div className="p-4 bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8 ">
                             <form onSubmit={handleUpdateQuantity} className="space-y-6" action="#">
                                 <h5 className="text-xl font-medium text-gray-900">Product Stock update</h5>

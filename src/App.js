@@ -14,8 +14,11 @@ import Register from './Pages/Register/Register';
 import UpdateProduct from './Pages/UpdateProduct/UpdateProduct';
 import Footer from './Shared/Footer/Footer';
 import Header from './Shared/Header/Header';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function App() {
+  AOS.init();
   return (
     <div className="App">
       <HelmetProvider>

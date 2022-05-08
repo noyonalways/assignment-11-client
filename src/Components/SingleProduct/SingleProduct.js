@@ -5,7 +5,7 @@ const SingleProduct = ({product, handleDeleteProduct}) => {
     const {_id, name, img, price, quantity, supplier } = product;
 
     return (
-        <div className="flex bg-gray-50 items-center shadow-sm hover:shadow-md duration-200 cursor-pointer rounded py-3 md:py-0 w-full border hover:scale-[1.01]">
+        <div data-aos="flip-up" data-aos-duration="1500" className="flex bg-gray-50 items-center shadow-sm hover:shadow-md duration-200 cursor-pointer rounded py-3 md:py-0 w-full border hover:scale-[1.01]">
             <div className='w-20 md:w-32'>
                 <img src={img} alt="" className="w-full rounded" />
             </div>

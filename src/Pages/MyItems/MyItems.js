@@ -95,7 +95,7 @@ const MyItems = () => {
                             </select>
                         </div>
                     </div>
-                    <div className="basis-full lg:basis-[28%] mb-10 lg:mb-0">
+                    <div data-aos="fade-up" data-aos-duration="1000" className="basis-full lg:basis-[28%] mb-10 lg:mb-0">
                         <div className='p-4 rounded w-full bg-gray-50'>
                             <h3 className="text-xl">Name: {user?.displayName}</h3>
                             <p className="text-lg">Email address: {user?.email}</p>

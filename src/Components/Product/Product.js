@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Product = ({ product }) => {
     const {_id, name, img, price, description, quantity, supplier } = product;
     return (
-        <div className='cursor-pointer space-y-3 p-3 shadow-md rounded hover:shadow-lg duration-200 '>
+        <div data-aos="fade-up" data-aos-duration="1500" className='cursor-pointer space-y-3 p-3 duration-300 shadow-md rounded hover:shadow-lg'>
             <div className=''>
                 <img className='w-full rounded' src={img} alt="" />
             </div>

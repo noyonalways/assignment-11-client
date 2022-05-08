@@ -108,8 +108,8 @@ const Register = () => {
     return (
         <div>
             <PageTitle title={'Register'} />
-            <div className="container px-5 md:px-0 mx-auto lg:px-16 flex items-center justify-center h-screen">
-                <div className="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md border-t">
+            <div className="container px-10 md:px-0 mx-auto lg:px-16 flex items-center justify-center h-screen">
+                <div data-aos="fade-up" data-aos-duration="1500" className="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md border-t">
                     <div className="px-6 py-4">
                         <h2 className="text-3xl font-bold text-center text-gray-700 ">Register</h2>
                         <p className="mt-1 text-center text-gray-500 ">Create an account</p>
