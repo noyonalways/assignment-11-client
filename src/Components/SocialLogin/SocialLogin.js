@@ -6,6 +6,7 @@ import auth from '../../Firebase/firebase.init';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import toast from 'react-hot-toast';
+import axios from 'axios';
 
 const SocialLogin = () => {
     const [signInWithGoogle, userByGoogle, loadingByGoogle, errorByGoogle] = useSignInWithGoogle(auth);
@@ -15,13 +16,14 @@ const SocialLogin = () => {
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
-    if(userByFb){
-        console.log(userByFb)
-    }
-
     if (userByGoogle || userByFb) {
-        navigate(from, {replace: true});
-        toast.success('Successfully Login',{id: 'socialLogin'});
+        (async () => {
+            const { data } = await axios.post('http://localhost:5000/login', { email: userByGoogle?.user.email || userByFb?.user.email });
+
+            localStorage.setItem('accessToken', data.accessToken);
+            navigate(from, { replace: true });
+            toast.success('Successfully login', { id: 'socialLogin' });
+        })()
     }
 
     if (loadingByGoogle || loadingByFb) {

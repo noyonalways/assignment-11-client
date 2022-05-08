@@ -5,8 +5,9 @@ import SocialLogin from '../../Components/SocialLogin/SocialLogin';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase/firebase.init';
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
-import Loading from '../../Components/Loading/Loading';
 import toast from 'react-hot-toast';
+import Spinner from '../../Components/Spinner/Spinner';
+import axios from 'axios';
 
 const Register = () => {
 
@@ -65,12 +66,16 @@ const Register = () => {
     }
 
     if(user){
-        navigate(from, {replace: true});
-        toast.success('Varification email sent!',{id: 'register'});
+        (async () => {
+            const { data } = await axios.post('http://localhost:5000/login', { email: user?.user.email });
+            localStorage.setItem('accessToken', data.accessToken);
+            navigate(from, { replace: true });
+            toast.success('Verification mail sent', { id: 'verifyMail' });
+        })()
     }
 
     if(loading || updating){
-        return <Loading/>
+        return <Spinner/>
     }
 
     const handleCreateUser = async (event) => {

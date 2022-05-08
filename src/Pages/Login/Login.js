@@ -8,9 +8,11 @@ import './Login.css';
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import toast from 'react-hot-toast';
 import auth from '../../Firebase/firebase.init';
-import { useSignInWithEmailAndPassword, useSendPasswordResetEmail  } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import { AiOutlineExclamationCircle } from "react-icons/ai";
-import Loading from '../../Components/Loading/Loading';
+import axios from 'axios';
+import Spinner from '../../Components/Spinner/Spinner';
+
 
 const Login = () => {
     const [showPasseword, setShowPassword] = useState(false);
@@ -58,17 +60,22 @@ const Login = () => {
         }
     }
 
-    if(resetError){
+    if (resetError) {
         toast.error(resetError.message, { id: 'resetPassword' });
     }
 
     if (user) {
-        navigate(from, { replace: true });
-        toast.success('Successfully Login', { id: 'login' });
+        (async () => {
+            const { data } = await axios.post('http://localhost:5000/login', { email: user?.user.email });
+            localStorage.setItem('accessToken', data.accessToken);
+            navigate(from, { replace: true });
+            toast.success('Successfully Login', { id: 'login' });
+        })()
+        
     }
 
     if (loading || sending) {
-        return <Loading />
+        return <Spinner />
     }
 
 
@@ -84,8 +91,11 @@ const Login = () => {
 
         if (email.value && password.value) {
             await signInWithEmailAndPassword(email.value, password.value);
+
             event.target.reset();
         }
+
+
     }
 
     const resetPassword = async () => {
