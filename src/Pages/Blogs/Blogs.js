@@ -12,8 +12,8 @@ const Blogs = () => {
     useEffect(()=> {
         const fetchQuestion = async () => {
             setLoading(true);
-            const res = await axios.get('http://localhost:5000/questions');
-            setQuestions(res.data)
+            const {data} = await axios.get('http://localhost:5000/question');
+            setQuestions(data.data)
             setLoading(false);
         }
         fetchQuestion();
