@@ -23,7 +23,7 @@ const Testimonial = () => {
 
     return (
         <section className='py-20 mb-10'>
-            <div className="container mx-auto lg:px-24">
+            <div className="container mx-auto lg:px-24 px-4">
                 <div className='mb-10' data-aos="zoom-in" data-aos-duration="1000">
                     <h2 className="text-center text-2xl">What our client says</h2>
                 </div>
