@@ -9,7 +9,7 @@ const PopularBlogs = () => {
     useEffect(() => {
         (async () => {
             setLoading(true);
-            const {data} = await axios.get('http://localhost:5000/popularBlog');
+            const {data} = await axios.get('https://salty-refuge-04381.herokuapp.com/popularBlog');
             setBlogs(data.data);
             setLoading(false);
             

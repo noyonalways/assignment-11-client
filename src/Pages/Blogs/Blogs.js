@@ -12,7 +12,7 @@ const Blogs = () => {
     useEffect(()=> {
         const fetchQuestion = async () => {
             setLoading(true);
-            const {data} = await axios.get('http://localhost:5000/question');
+            const {data} = await axios.get('https://salty-refuge-04381.herokuapp.com/question');
             setQuestions(data.data)
             setLoading(false);
         }

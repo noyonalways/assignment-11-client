@@ -6,7 +6,7 @@ const BestProducts = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
         const fetchProducts = async () => {
-            const {data} = await axios.get('http://localhost:5000/product?limit=6&pageNumber=0');
+            const {data} = await axios.get('https://salty-refuge-04381.herokuapp.com/product?limit=6&pageNumber=0');
             setProducts(data.data);
         }
         fetchProducts();

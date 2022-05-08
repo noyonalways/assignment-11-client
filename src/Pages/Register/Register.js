@@ -67,7 +67,7 @@ const Register = () => {
 
     if(user){
         (async () => {
-            const { data } = await axios.post('http://localhost:5000/login', { email: user?.user.email });
+            const { data } = await axios.post('https://salty-refuge-04381.herokuapp.com/login', { email: user?.user.email });
             localStorage.setItem('accessToken', data.accessToken);
             navigate(from, { replace: true });
             toast.success('Verification mail sent', { id: 'verifyMail' });

@@ -104,7 +104,7 @@ const AddProduct = () => {
 
 
 
-            const { data } = await axios.post('http://localhost:5000/product', product);
+            const { data } = await axios.post('https://salty-refuge-04381.herokuapp.com/product', product);
 
             if (data.success) {
                 toast.success('Product Successfully added', { id: 'addedProduct' });

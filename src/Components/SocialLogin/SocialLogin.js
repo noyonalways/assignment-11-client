@@ -18,7 +18,7 @@ const SocialLogin = () => {
 
     if (userByGoogle || userByFb) {
         (async () => {
-            const { data } = await axios.post('http://localhost:5000/login', { email: userByGoogle?.user.email || userByFb?.user.email });
+            const { data } = await axios.post('https://salty-refuge-04381.herokuapp.com/login', { email: userByGoogle?.user.email || userByFb?.user.email });
 
             localStorage.setItem('accessToken', data.accessToken);
             navigate(from, { replace: true });

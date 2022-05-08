@@ -15,7 +15,7 @@ const UpdateProduct = () => {
     useEffect(() => {
         (async () => {
             setLoading(true);
-            const { data } = await axios.get(`http://localhost:5000/product/${productId}`);
+            const { data } = await axios.get(`https://salty-refuge-04381.herokuapp.com/product/${productId}`);
             setProdouct(data);
             setLoading(false);
         })();
@@ -48,7 +48,7 @@ const UpdateProduct = () => {
             toast.error("Please add grater than current quantity", { id: 'grater' })
         }
         if (newQuantity.value > 0 && newQuantity.value > parseInt(quantity)) {
-            const { data } = await axios.put(`http://localhost:5000/product/${productId}`, { quantity: newQuantity.value });
+            const { data } = await axios.put(`https://salty-refuge-04381.herokuapp.com/product/${productId}`, { quantity: newQuantity.value });
 
             const { quantity, ...rest } = product;
             const currentQuantity = newQuantity.value;
@@ -69,7 +69,7 @@ const UpdateProduct = () => {
 
     const handleDelevired = async () => {
         if (parseInt(quantity) > 0) {
-            const { data } = await axios.put(`http://localhost:5000/product/${productId}`, { quantity: parseInt(quantity) - 1, });
+            const { data } = await axios.put(`https://salty-refuge-04381.herokuapp.com/product/${productId}`, { quantity: parseInt(quantity) - 1, });
             if (data.success) {
                 const { quantity, ...rest } = product;
                 const newQuantity = parseInt(quantity) - 1;

@@ -9,7 +9,7 @@ const Testimonial = () => {
     useEffect(() => {
         (async () => {
             setLoading(true)
-            const { data } = await axios.get('http://localhost:5000/testimonial')
+            const { data } = await axios.get('https://salty-refuge-04381.herokuapp.com/testimonial')
             setTestimonials(data?.data);
             setLoading(false);
         })();

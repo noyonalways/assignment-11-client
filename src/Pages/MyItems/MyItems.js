@@ -25,7 +25,7 @@ const MyItems = () => {
         (async () => {
             setLoading(true)
             try {
-                const { data } = await axios.get(`http://localhost:5000/myItem?email=${email}&limit=${limit}&pageNumber=${pageNumber}`, {
+                const { data } = await axios.get(`https://salty-refuge-04381.herokuapp.com/myItem?email=${email}&limit=${limit}&pageNumber=${pageNumber}`, {
                     headers: {
                         authorization: `Bearer ${localStorage.getItem('accessToken')}`
                     }
@@ -62,7 +62,7 @@ const MyItems = () => {
         const proceed = window.confirm('Are you sure?');
         if (proceed) {
             (async () => {
-                const { data } = await axios.delete(`http://localhost:5000/product/${id}`);
+                const { data } = await axios.delete(`https://salty-refuge-04381.herokuapp.com/product/${id}`);
                 if (data) {
                     const remaining = myAddedProducts.filter(service => service._id !== id);
                     setMyAddedProducts(remaining);

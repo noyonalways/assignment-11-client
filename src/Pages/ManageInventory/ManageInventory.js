@@ -23,7 +23,7 @@ const ManageInventory = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             setLoading(true);
-            const { data } = await axios.get(`http://localhost:5000/product?limit=${limit}&pageNumber=${pageNumber}`);
+            const { data } = await axios.get(`https://salty-refuge-04381.herokuapp.com/product?limit=${limit}&pageNumber=${pageNumber}`);
             
             if (!data?.success) {
                 setProducts([])
@@ -52,7 +52,7 @@ const ManageInventory = () => {
             const proceed = window.confirm('Are you sure?');
             if (proceed) {
                 (async () => {
-                    const { data } = await axios.delete(`http://localhost:5000/product/${id}`);
+                    const { data } = await axios.delete(`https://salty-refuge-04381.herokuapp.com/product/${id}`);
                     if (data) {
                         const remaining = products.filter(service => service._id !== id);
                         setProducts(remaining);
